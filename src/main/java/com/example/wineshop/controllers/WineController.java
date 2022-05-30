@@ -40,6 +40,30 @@ public class WineController {
         //return repository.findAll();
     }
 
+    @GetMapping("/wines/pricier10")
+    List<Wine> pricier10() {
+        return repository.findTopPrice()
+                .stream()
+                .collect(Collectors.toList());
+        //return repository.findAll();
+    }
+
+    @GetMapping("/wines/ratio10")
+    List<Wine> ratio10() {
+        return repository.findTopRatio()
+                .stream()
+                .collect(Collectors.toList());
+        //return repository.findAll();
+    }
+
+    @GetMapping("/wines/years10")
+    List<Wine> years10() {
+        return repository.findTopYears()
+                .stream()
+                .collect(Collectors.toList());
+        //return repository.findAll();
+    }
+
     @PostMapping("/wines")
     Wine newType(@RequestBody @Valid Wine newWine, BindingResult bindingResult) {
 
